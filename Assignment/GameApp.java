@@ -12,8 +12,7 @@ public class GameApp {
 
     public static void main(String[] args) {
         javax.swing.SwingUtilities.invokeLater(() -> {
-            GameStarting g = new GameStarting();
+            GameSetting g = new GameSetting();
         });
-
     }
 }

@@ -5,7 +5,12 @@
 package Assignment;
 
 import java.awt.FlowLayout;
+import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JFrame;
+import javax.swing.Timer;
 
 /**
  *
@@ -13,19 +18,29 @@ import javax.swing.JFrame;
  */
 public class NormalMode extends JFrame
 {
+    private int inGameFrameWidth;
+    private int inGameFrameHeight;
     private Player player;
+    ArrayList<Ball> balls;
+    private MovingBalls movingBalls;
+    
     public NormalMode() {
         this.setTitle("Normal Mode");
+        this.inGameFrameHeight = 720;
+        this.inGameFrameWidth = 720;
+        
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new FlowLayout());
 
-        this.setSize(720, 720);
+        this.setSize(inGameFrameWidth, inGameFrameHeight);
         this.setResizable(false);
         setLocationRelativeTo(null);
 
         player = new Player();
         this.add(player);
 
+        player.setVisible(true);
+        
        
-        setVisible(true);
     }
 }

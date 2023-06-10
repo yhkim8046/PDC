@@ -13,12 +13,16 @@ import javax.swing.JFrame;
 public class HardMode extends JFrame {
 
     private Player player;
+    private int inGameFrameWidth;
+    private int inGameFrameHeight;
     
     public HardMode() {
+        this.inGameFrameHeight = 720;
+        this.inGameFrameWidth = 720;
         this.setTitle("Hard Mode");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        this.setSize(720, 720);
+        this.setSize(inGameFrameWidth, inGameFrameHeight);
         this.setResizable(false);
         setLocationRelativeTo(null);
 

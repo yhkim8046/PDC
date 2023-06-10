@@ -17,14 +17,19 @@ public class Player extends JComponent implements KeyListener{
 
     private int x = 360; // x-coordinate of the rectangle 
     private int y = 670; // y-coordinate of the rectangle
-    private final int width = 15; // width of the rectangle
-    private final int height = 15; // height of the rectangle
+    private final int width = 10; // width of the rectangle
+    private final int height = 10; // height of the rectangle
+    private int inGameFrameWidth = 720;
+    private int inGameFrameHeight = 720;
+    private boolean isGameOver;
+    
 
     public Player() {
         setPreferredSize(new Dimension(width, height));
         setFocusable(true);
         requestFocus();
         addKeyListener(this);
+        
     }
 
     @Override
@@ -38,24 +43,24 @@ public class Player extends JComponent implements KeyListener{
     public void keyPressed(KeyEvent e) {
         int keyCode = e.getKeyCode();
 
-        switch (keyCode) {
+         switch (keyCode) {
             case KeyEvent.VK_UP:
-                if (y > 0) {
+                if (y - 10 >= 0) {
                     y -= 10;
                 }
                 break;
             case KeyEvent.VK_DOWN:
-                if (y < 670) {
+                if (y + 10 <= inGameFrameHeight - height) {
                     y += 10;
                 }
                 break;
             case KeyEvent.VK_LEFT:
-                if (x > 0) {
+                if (x - 10 >= 0) {
                     x -= 10;
                 }
                 break;
             case KeyEvent.VK_RIGHT:
-                if (x < 670) {
+                if (x + 10 <= inGameFrameWidth - width) {
                     x += 10;
                 }
                 break;
@@ -74,4 +79,14 @@ public class Player extends JComponent implements KeyListener{
     public void keyTyped(KeyEvent e) {
         
     }
+    
+    public void setIsGameOver(boolean x)
+    {
+        this.isGameOver = x;
+    }
+    public boolean getIsGameOver()
+    {
+        return this.isGameOver;
+    }
 } 
+ 
