@@ -18,88 +18,65 @@ import javax.swing.JMenuItem;
  *
  * @author yuhwankim
  */
-public class GameStarting 
-{
+public class GameStarting {
+
     private GameFrame gameFrame = new GameFrame();
-    private JButton gameStartingButton;
-    private JButton playerSetting;
-    private JButton history;
+    private JButton easyModeButton;
+    private JButton noramlModeButton;
+    private JButton hardMode;
     private JPanel player;
     private JMenuBar menuBar;
     private JMenu homeMenu;
     private JMenuItem newMenuItem;
 
-    
     public GameStarting() {
-       
-        gameStartingButton = new JButton("Game Start");
-        gameStartingButton.setBounds(350, 250, 300, 100); 
-        gameFrame.add(gameStartingButton);        
         
-        playerSetting = new JButton("Player Setting");
-        playerSetting.setBounds(700,500,100,50);
-        gameFrame.add(playerSetting);
-        
-        history = new JButton("Game History");
-        history.setBounds(700,550,100,50);
-        gameFrame.add(history);
-        
+        easyModeButton = new JButton("Easy Mode");
+        easyModeButton.setBounds(150, 100, 100, 50);
+        gameFrame.add(easyModeButton);
+
+        noramlModeButton = new JButton("Normal Mode");
+        noramlModeButton.setBounds(150, 150, 100, 50);
+        gameFrame.add(noramlModeButton);
+
+        hardMode = new JButton("Hard Mode");
+        hardMode.setBounds(150, 200, 100, 50);
+        gameFrame.add(hardMode);
+
         player = new JPanel();
-        
+
         menuBar = new JMenuBar();
         homeMenu = new JMenu("Home");
         menuBar.add(homeMenu);
         gameFrame.setJMenuBar(menuBar);
-        homeMenu.addActionListener(new ActionListener() {
+        
+        easyModeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                gameFrame.revalidate();
-                gameFrame.repaint();
-                gameFrame.add(gameStartingButton);
-                gameFrame.add(playerSetting);
-                gameFrame.add(history);
+                EasyMode easyModeFrame = new EasyMode();
+                easyModeFrame.setVisible(true); // Set the visibility to true
             }
         });
-        
-        this.removeContents();
-    }
-    
-    public void removeContents() //when the buttons got clicked 
-    {
-        gameStartingButton.addActionListener(new ActionListener() {
+
+        noramlModeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                gameFrame.remove(history);
-                gameFrame.remove(playerSetting);
-                gameFrame.remove(gameStartingButton);
-                gameFrame.revalidate();
-                gameFrame.repaint();
-            } 
+                NormalMode normalModeFrame = new NormalMode();
+                normalModeFrame.setVisible(true); // Set the visibility to true
+            }
         });
-          playerSetting.addActionListener(new ActionListener() {
+
+        hardMode.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                gameFrame.remove(history);
-                gameFrame.remove(playerSetting);
-                gameFrame.remove(gameStartingButton);
-                gameFrame.revalidate();
-                gameFrame.repaint();
-            } 
+                HardMode hardModeFrame = new HardMode();
+                hardModeFrame.setVisible(true); // Set the visibility to true
+            }
         });
-            history.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                gameFrame.remove(history);
-                gameFrame.remove(playerSetting);
-                gameFrame.remove(gameStartingButton);
-                gameFrame.revalidate();
-                gameFrame.repaint();
-            } 
-        }); 
+
     }
-    
-    public void GameStarting()
-    {
-        
+
+    public void GameStarting() {
+
     }
 }

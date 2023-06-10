@@ -15,8 +15,8 @@ import javax.swing.JPanel;
  */
 public class GameFrame extends JFrame
 { 
-    public static final int height = 1000;
-    public static final int weight = 1000;
+    public static final int height = 400;
+    public static final int weight = 400;
     
     public GameFrame()
     {
